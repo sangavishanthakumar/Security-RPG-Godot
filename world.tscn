@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://doaniem521ya5"]
+
+[ext_resource type="Texture2D" uid="uid://cevs8yxd81vv5" path="res://World/plant.png" id="1_mleas"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2_3ddok"]
+[ext_resource type="Texture2D" uid="uid://dm4svaast4a0q" path="res://Player/Player.png" id="2_a4478"]
+
+[node name="World" type="Node2D"]
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(42, 52)
+scale = Vector2(0.1, 0.09)
+texture = ExtResource("1_mleas")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(120, 58)
+script = ExtResource("2_3ddok")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_a4478")
