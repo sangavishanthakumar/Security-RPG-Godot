@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://doaniem521ya5"]
+[gd_scene load_steps=6 format=3 uid="uid://doaniem521ya5"]
 
+[ext_resource type="Script" path="res://World.gd" id="1_cwolv"]
 [ext_resource type="PackedScene" uid="uid://1nfl6xvbxula" path="res://Player/player.tscn" id="2_eqlu3"]
 [ext_resource type="PackedScene" uid="uid://cvuuf3jtknek2" path="res://World/plant.tscn" id="2_kuaxv"]
 [ext_resource type="Texture2D" uid="uid://bhl0yxt23svxm" path="res://World/GrassBackground.png" id="3_bloox"]
@@ -7,6 +8,7 @@
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_cwolv")
 
 [node name="Player" parent="." instance=ExtResource("2_eqlu3")]
 position = Vector2(128, 63)

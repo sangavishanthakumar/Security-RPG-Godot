@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy0wwt3rwalhs"]
+[gd_scene load_steps=6 format=3 uid="uid://cy0wwt3rwalhs"]
 
 [ext_resource type="Texture2D" uid="uid://dtkmvn7hfk4ye" path="res://World/pc.png" id="1_4trp7"]
+[ext_resource type="Script" path="res://World/Computer.gd" id="1_fjlxh"]
+[ext_resource type="Script" path="res://World/Computer_Area2D.gd" id="3_6fv1h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hbxgj"]
 radius = 12.0
 height = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugmqb"]
+radius = 28.0179
+
 [node name="Computer" type="StaticBody2D"]
+script = ExtResource("1_fjlxh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -16,3 +22,9 @@ texture = ExtResource("1_4trp7")
 position = Vector2(1, 10)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_hbxgj")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_6fv1h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ugmqb")

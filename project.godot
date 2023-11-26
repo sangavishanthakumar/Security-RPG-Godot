@@ -26,8 +26,11 @@ window/stretch/mode="canvas_items"
 
 [navigation]
 
-3d/size/mode=2
-3d/size/window_height_override=640
+3d/size/mode=0
+3d/size/window_height_override=720
+3d/size/window_width_override=1280
+3d/size/viewport_height=648
+3d/size/viewport_width=320
 
 [rendering]
 

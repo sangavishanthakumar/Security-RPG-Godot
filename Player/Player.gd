@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 # callback function
 # _ready() is executed, when "Player" is loaded
+func _ready():
+	add_to_group("player")
 
 const ACCELERATION = 10000 # get faster the "longer" you go
 const MAX_SPEED = 150 # max speed of player
@@ -43,3 +45,4 @@ func update_frame(direction_x):
 			sprite_node.frame = 0 # right
 	else:
 		print("Fehler: Sprite2D Node wurde nicht gefunden.")
+
