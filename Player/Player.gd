@@ -24,7 +24,22 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		update_frame(input_vector.x)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION*delta)
 	
-	move_and_collide(velocity*delta)
+	
+	move_and_slide()
+
+# function to update the player image
+# left-key is pressed: image on index 1 is called
+# right-key analog
+func update_frame(direction_x):
+	var sprite_node = $Sprite2D
+	if sprite_node != null:
+		if direction_x < 0: 
+			sprite_node.frame = 1 # left
+		elif direction_x > 0:
+			sprite_node.frame = 0 # right
+	else:
+		print("Fehler: Sprite2D Node wurde nicht gefunden.")

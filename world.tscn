@@ -1,21 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://doaniem521ya5"]
+[gd_scene load_steps=5 format=3 uid="uid://doaniem521ya5"]
 
-[ext_resource type="Texture2D" uid="uid://cevs8yxd81vv5" path="res://World/plant.png" id="1_mleas"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_3ddok"]
-[ext_resource type="Texture2D" uid="uid://dm4svaast4a0q" path="res://Player/Player.png" id="2_a4478"]
+[ext_resource type="PackedScene" uid="uid://1nfl6xvbxula" path="res://Player/player.tscn" id="2_eqlu3"]
+[ext_resource type="PackedScene" uid="uid://cvuuf3jtknek2" path="res://World/plant.tscn" id="2_kuaxv"]
+[ext_resource type="Texture2D" uid="uid://bhl0yxt23svxm" path="res://World/GrassBackground.png" id="3_bloox"]
+[ext_resource type="PackedScene" uid="uid://cy0wwt3rwalhs" path="res://World/computer.tscn" id="4_v6jt0"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
-[node name="Plant" type="Sprite2D" parent="."]
-position = Vector2(42, 52)
-scale = Vector2(0.1, 0.09)
-texture = ExtResource("1_mleas")
+[node name="Player" parent="." instance=ExtResource("2_eqlu3")]
+position = Vector2(128, 63)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(120, 58)
-script = ExtResource("2_3ddok")
-metadata/_edit_group_ = true
+[node name="Plant" parent="." instance=ExtResource("2_kuaxv")]
+position = Vector2(40, 56)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_a4478")
+[node name="Plant2" parent="." instance=ExtResource("2_kuaxv")]
+position = Vector2(64, 160)
+
+[node name="Plant3" parent="." instance=ExtResource("2_kuaxv")]
+position = Vector2(256, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("3_bloox")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 256)
+
+[node name="Computer" parent="." instance=ExtResource("4_v6jt0")]
+position = Vector2(222, 36)

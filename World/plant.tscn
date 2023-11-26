@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvuuf3jtknek2"]
+
+[ext_resource type="Texture2D" uid="uid://cevs8yxd81vv5" path="res://World/plant.png" id="1_g1pm7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rrv5"]
+radius = 8.0
+height = 16.0
+
+[node name="Plant" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -12)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_g1pm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3.8147e-06)
+rotation = -1.5708
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CapsuleShape2D_3rrv5")
