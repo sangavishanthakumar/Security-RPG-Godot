@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d16nnt1u81u0u"]
+
+[ext_resource type="Script" path="res://UI/TextBox.gd" id="1_hflx6"]
+[ext_resource type="Texture2D" uid="uid://drv2lou4ecmu7" path="res://UI/TextBox.png" id="1_klc2r"]
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hflx6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 192.0
+offset_right = 269.0
+offset_bottom = 253.0
+texture = ExtResource("1_klc2r")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 210.0
+offset_right = 228.0
+offset_bottom = 233.0
+rotation = 0.000231093
+theme_override_colors/font_color = Color(0.294118, 0.556863, 0.8, 1)

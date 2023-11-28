@@ -10,7 +10,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		text_box.show_text("Möchtest du dir den Computer näher ansehen?")
+		text_box.show_text("Eine Pflanze!")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
