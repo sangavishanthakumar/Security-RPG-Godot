@@ -1,7 +1,6 @@
 # TextBoxComputer.gd
-extends Control  # Oder was auch immer dein Hauptknoten ist
+extends Control  
 
-# Das Label-Kindknoten, das den Text anzeigt, definieren
 var label
 
 func show_text(text: String):
@@ -11,3 +10,4 @@ func show_text(text: String):
 
 func hide_text():
 	self.visible = false
+

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cy0wwt3rwalhs"]
 
-[ext_resource type="Texture2D" uid="uid://dtkmvn7hfk4ye" path="res://World/pc.png" id="1_4trp7"]
+[ext_resource type="Texture2D" uid="uid://dtkmvn7hfk4ye" path="res://assets/pc.png" id="1_4trp7"]
 [ext_resource type="Script" path="res://World/Computer.gd" id="1_fjlxh"]
 [ext_resource type="Script" path="res://World/Computer_Area2D.gd" id="3_6fv1h"]
 

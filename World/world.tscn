@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://doaniem521ya5"]
+[gd_scene load_steps=9 format=3 uid="uid://doaniem521ya5"]
 
 [ext_resource type="Script" path="res://World/World.gd" id="1_cwolv"]
 [ext_resource type="PackedScene" uid="uid://1nfl6xvbxula" path="res://Player/player.tscn" id="2_eqlu3"]
 [ext_resource type="PackedScene" uid="uid://cvuuf3jtknek2" path="res://World/plant.tscn" id="2_kuaxv"]
-[ext_resource type="Texture2D" uid="uid://bhl0yxt23svxm" path="res://World/GrassBackground.png" id="3_bloox"]
+[ext_resource type="Texture2D" uid="uid://bhl0yxt23svxm" path="res://assets/GrassBackground.png" id="4_emqg1"]
 [ext_resource type="PackedScene" uid="uid://cy0wwt3rwalhs" path="res://World/computer.tscn" id="4_v6jt0"]
 [ext_resource type="PackedScene" uid="uid://d16nnt1u81u0u" path="res://UI/TextBox.tscn" id="6_0i84q"]
+[ext_resource type="PackedScene" uid="uid://b8x0etrct8eb8" path="res://Dialogues/computer/player_close_to_computer.tscn" id="7_ilrtq"]
+[ext_resource type="PackedScene" uid="uid://grpee20yd8dh" path="res://Dialogues/plant/plant.tscn" id="8_hn7dc"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -25,7 +27,7 @@ position = Vector2(256, 88)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-texture = ExtResource("3_bloox")
+texture = ExtResource("4_emqg1")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 400, 256)
@@ -36,4 +38,10 @@ position = Vector2(222, 36)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextBox" parent="CanvasLayer" instance=ExtResource("6_0i84q")]
+visible = false
+
+[node name="player_close_to_computer" parent="." instance=ExtResource("7_ilrtq")]
+visible = false
+
+[node name="plant" parent="." instance=ExtResource("8_hn7dc")]
 visible = false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8x0etrct8eb8"]
+
+[ext_resource type="Script" path="res://Dialogues/computer/player_close_to_computer.gd" id="1_kwfjy"]
+
+[node name="player_close_to_plant" type="Node2D"]
+script = ExtResource("1_kwfjy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+offset_left = 123.0
+offset_top = 244.0
+offset_right = 239.0
+offset_bottom = 256.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Möchtest du dir den Computer näher ansehen?"
+horizontal_alignment = 1
+vertical_alignment = 1
