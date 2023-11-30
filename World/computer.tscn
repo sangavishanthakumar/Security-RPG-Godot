@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy0wwt3rwalhs"]
+[gd_scene load_steps=9 format=3 uid="uid://cy0wwt3rwalhs"]
 
 [ext_resource type="Texture2D" uid="uid://dtkmvn7hfk4ye" path="res://assets/pc.png" id="1_4trp7"]
 [ext_resource type="Script" path="res://World/Computer.gd" id="1_fjlxh"]
+[ext_resource type="JSON" path="res://Dialogues/computer/computer.json" id="2_b4jbk"]
 [ext_resource type="Script" path="res://World/Computer_Area2D.gd" id="3_6fv1h"]
+[ext_resource type="Script" path="res://World/computer_dialogue.gd" id="4_e3ae4"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="4_kgytx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hbxgj"]
 radius = 12.0
@@ -13,6 +16,7 @@ radius = 28.0179
 
 [node name="Computer" type="StaticBody2D"]
 script = ExtResource("1_fjlxh")
+dialogue_json = ExtResource("2_b4jbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -28,3 +32,18 @@ script = ExtResource("3_6fv1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ugmqb")
+
+[node name="dialogue" type="Node2D" parent="Area2D"]
+script = ExtResource("4_e3ae4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area2D/dialogue"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Area2D/dialogue/VBoxContainer"]
+layout_mode = 2
+
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("4_kgytx")
+
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]

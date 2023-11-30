@@ -1,0 +1,1 @@
+[{"commands_raw":"Möchtest du dir den Computer näher ansehen?\n?> Ja -> ja\n?> Nein -> nein","gnode_name":"start","id":0,"name":"Start","position":[461,484.5]},{"commands_raw":"","gnode_name":"ja","id":1,"name":"Ja","position":[754.760009765625,367.220001220703]},{"commands_raw":"","gnode_name":"nein","id":2,"name":"Nein","position":[0,0]}]

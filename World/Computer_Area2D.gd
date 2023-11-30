@@ -1,8 +1,25 @@
-# Computer_Area2D.gd
 extends Area2D
 
+var dialogue_instance: Node2D = null
+
+func _ready():
+	dialogue_instance = $dialogue 
+	dialogue_instance.visible = false 
+	connect("body_entered", Callable(self, "_on_body_entered"))
+	connect("body_exited", Callable(self, "_on_body_exited"))
+
+func _on_body_entered(body):
+	if body.name == "Player":
+		dialogue_instance.visible = true
+
+func _on_body_exited(body):
+	if body.name == "Player": 
+		dialogue_instance.visible = false
+
+
+""" old way to make the textbox (png) visible
 # call the dialogue window plant.tscn
-var dialog_scene = preload("res://Dialogues/computer/player_close_to_computer.tscn")
+var dialog_scene = preload("res://Dialogues/plant/plant.tscn")
 var dialog_instance
 
 func _ready():
@@ -20,21 +37,5 @@ func _on_body_exited(body):
 	if body.is_in_group("player") and dialog_instance:
 		dialog_instance.visible = false
 
-
 """
-var text_box
 
-func _ready():
-	connect("body_entered", Callable(self, "_on_body_entered"))
-	connect("body_exited", Callable(self, "_on_body_exited"))
-	text_box = get_node("/root/World/CanvasLayer/TextBox")
-
-func _on_body_entered(body):
-	if body.is_in_group("player"):
-		text_box.show_text("Möchtest du dir den Computer näher ansehen?")
-
-func _on_body_exited(body):
-	if body.is_in_group("player"):
-		text_box.hide_text()
-
-"""

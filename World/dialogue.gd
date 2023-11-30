@@ -1,25 +1,15 @@
 extends Node2D
-
 # create dialogue window
-
-
 @onready var choice_button_scene = preload("res://Dialogues/computer/choice_buttons.tscn")
-
 
 var choice_buttons: Array[Button] = []
 
 func _ready():
-	#add_choice("Hübsch")
-	#add_choice("Ist ok")
+	# add_choice("Ja")
+	# add_choice("Nein")
 	pass
-func clear_dialogue_box():
-	$VBoxContainer/Text.text = ""
-	for choice in choice_buttons:
-		$VBoxContainer.remove_child(choice)
-	choice_buttons = []
 
 func add_text(text: String):
-	#print("Text "+text)
 	$VBoxContainer/Label.text = text
 
 # add the button choices from the scene choice_buttons.tsc
@@ -38,5 +28,3 @@ func _on_choice_selected(choice_index: int):
 	
 func hide_text():
 	visible = false
-
-

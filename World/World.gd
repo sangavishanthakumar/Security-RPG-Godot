@@ -1,1 +1,4 @@
-extends Node
+# World.gd
+extends Node2D
+
+

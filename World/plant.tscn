@@ -1,12 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvuuf3jtknek2"]
+[gd_scene load_steps=9 format=3 uid="uid://cvuuf3jtknek2"]
 
+[ext_resource type="JSON" path="res://Dialogues/plant/plant.json" id="1_3d5qx"]
 [ext_resource type="Texture2D" uid="uid://cevs8yxd81vv5" path="res://assets/plant.png" id="1_4tya1"]
 [ext_resource type="Script" path="res://World/PlantArea2D.gd" id="2_61t0e"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="3_ykre3"]
+[ext_resource type="Script" path="res://World/dialogue.gd" id="4_jgu3f"]
 
 [sub_resource type="GDScript" id="GDScript_gdp0j"]
 script/source = "# Plant.gd
 extends StaticBody2D
 
+@export var dialogue_json: JSON
+@onready var state = {}
+
+func _ready():
+	($EzDialogue as EzDialogue).start_dialogue(dialogue_json, state)
+	pass
+
+func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
+	$Area2D/dialogue.add_text(response.text)
+	
+	for choice in response.choices:
+		$Area2D/dialogue.add_choice(choice)
+
+\"\"\"
 var text_box
 
 func _ready():
@@ -22,13 +39,9 @@ func _on_body_exited(body):
 	if body.is_in_group(\"player\"):
 		text_box.hide_text()
 
-
-func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	pass # Replace with function body.
+\"\"\"
 
 
-func _on_area_2d_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
-	pass # Replace with function body.
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rrv5"]
@@ -40,6 +53,7 @@ radius = 17.0
 
 [node name="Plant" type="StaticBody2D"]
 script = SubResource("GDScript_gdp0j")
+dialogue_json = ExtResource("1_3d5qx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -12)
@@ -59,5 +73,21 @@ script = ExtResource("2_61t0e")
 position = Vector2(1, -12)
 shape = SubResource("CircleShape2D_4lff2")
 
+[node name="dialogue" type="Node2D" parent="Area2D"]
+script = ExtResource("4_jgu3f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area2D/dialogue"]
+offset_left = 43.0
+offset_top = 13.0
+offset_right = 83.0
+offset_bottom = 53.0
+
+[node name="Label" type="Label" parent="Area2D/dialogue/VBoxContainer"]
+layout_mode = 2
+
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("3_ykre3")
+
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
